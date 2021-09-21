@@ -603,7 +603,7 @@ if (isset($_POST)) {
                 echo 'success';
             }
         }
-        header("Location: ../../Pedidos/ListPedidos.php?variable=1");
+        header("Location: ../../Pedidos/ListPedidos.php?variable=1"); 
     }
     if (isset($_POST["guardar_foto"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
