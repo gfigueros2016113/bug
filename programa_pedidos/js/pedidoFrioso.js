@@ -757,7 +757,9 @@ function agregarPedido() {
     var idVendedor = document.getElementById('idVendedor').value;
     var idTipoEntrega = document.getElementById('idTipoEntrega').value;
     var idCliente = document.getElementById('idCliente').value;
-
+    var cont = 0;
+    if(cont==0){
+        cont=1;
     $.ajax({
         url: '../inventarios_php/bd/servidor.php',
         type: 'POST',
@@ -797,6 +799,13 @@ function agregarPedido() {
         }
 
     });
+    }else {
+        Swal.fire(
+            'Falló',
+            'Este pedido ya se ha hecho',
+            'error'
+        )
+    }
 }
 
 function agregarDetallePedido(idP) {

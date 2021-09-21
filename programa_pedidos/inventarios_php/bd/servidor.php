@@ -4,7 +4,7 @@ date_default_timezone_set("America/Guatemala");
 $hoy = date("Y") . "-" . date("m") . "-" . date("d");
 
 // ---------------- SQL SERVER -------------------- //
-$dsn = "Driver={SQL Server};Server=192.168.0.7;Port=1433;Database=tutorial2020";
+/*$dsn = "Driver={SQL Server};Server=192.168.0.7;Port=1433;Database=tutorial2020";
 $data_source = 'zzzz';
 $user = 'sa';
 $password = 'grueconsa';
@@ -17,7 +17,7 @@ if (!$conn) {
     } else {
         exit("Connection Failed:" . odbc_errormsg());
     }
-}
+}*/
 // ---------------- MYSQL -------------------- //
 $con = mysqli_connect("localhost", "root", "");
 if (!$con) {
