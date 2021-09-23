@@ -759,7 +759,7 @@ function agregarPedido() {
     var idCliente = document.getElementById('idCliente').value;
     var cont = 0;
     if(cont==0){
-        cont=1;
+        cont=cont+1;
     $.ajax({
         url: '../inventarios_php/bd/servidor.php',
         type: 'POST',

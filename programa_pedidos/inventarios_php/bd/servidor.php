@@ -992,3 +992,45 @@ if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
         }
     }
 }
+
+
+//-------------reportes
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'productos_por_mes') {
+            $mysql_query = "select(select count(*) as enero from pedidounhesa where month(fecha_emision)=1 and idEstado=2) as enero,(select count(*)as febrero from pedidounhesa where month(fecha_emision)=2 and idEstado=2)as febrero,(select count(*)as febrero from pedidounhesa where month(fecha_emision)=3 and idEstado=2)as maro,(select count(*)as abril from pedidounhesa where month(fecha_emision)=4 and idEstado=2)as abril,(select count(*)as mayo from pedidounhesa where month(fecha_emision)=5 and idEstado=2)as mayo,(select count(*)as junio from pedidounhesa where month(fecha_emision)=6 and idEstado=2)as junio,(select count(*)as julio from pedidounhesa where month(fecha_emision)=7 and idEstado=2)as julio,(select count(*)as agosto from pedidounhesa where month(fecha_emision)=8 and idEstado=2 )as agosto,(select count(*)as septiembre from pedidounhesa where month(fecha_emision)=9 and idEstado=2)as septiembre,(select count(*)as octubre from pedidounhesa where month(fecha_emision)=10 and idEstado=2)as octubre,(select count(*)as noviembre from pedidounhesa where month(fecha_emision)=11 and idEstado=2)as noviembre,(select count(*)as diciembre from pedidounhesa where month(fecha_emision)=12 and idEstado=2)as diciembre;";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'enero' => $fila["enero"],
+                        'febrero' => $fila["febrero"],
+                        'marzo' => $fila["marzo"],
+                        'abril' => $fila["abril"],
+                        'mayo' => $fila["mayo"],
+                        'junio' => $fila["junio"],
+                        'julio' => $fila["julio"],
+                        'agosto' => $fila["agosto"],
+                        'septiembre' => $fila["septiembre"],
+                        'octubre' => $fila["octubre"],
+                        'noviembre' => $fila["noviembre"],
+                        'diciembre' => $fila["diciembre"]
+                        <var>'id' => $fila["id"]</var>
+
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
