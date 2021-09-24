@@ -216,7 +216,7 @@ while ($fila = mysqli_fetch_array($respuesta_semanas)) {
         <div id="OpcionesPedidoOnline" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones:</h6>
-            <a class="collapse-item" href="./inventarios_php/general.html">
+            <a class="collapse-item" href="./inventarios_php/reportes_cesar.html">
               <i class="fas fa-receipt"></i>&nbsp Pedidos Online Cesar</a>
             <a class="collapse-item" href="./inventarios_php/buscar_pedido_online.html"><i class="fas fa-stream"></i>&nbsp Buscar</a>
             <a class="collapse-item" href="./inventarios_php/agregar_pedido_online.html">
