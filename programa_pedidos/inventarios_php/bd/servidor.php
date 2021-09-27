@@ -1037,7 +1037,7 @@ if (isset($_GET)) {
 if (isset($_GET)) {
     if (isset($_GET["quest"])) {
         if ($_GET["quest"] == 'clientes_hace_1mes') {
-            $mysql_query = "select distinct c.*, idC.Dias,idC.total AS total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_emision, NOW())AS Dias  FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH)) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente WHERE c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(NOW()) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente);";
+            $mysql_query = "select distinct c.*, idC.Dias,idC.total AS total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_emision, NOW())AS Dias  FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH)) AND YEAR(fecha_emision) = YEAR(NOW()) and idEstado=2 ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente WHERE c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(NOW()) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente) group by(c.nombre);";
             $resultado = mysqli_query($con, $mysql_query);
 
             if (!$resultado) {
@@ -1069,7 +1069,7 @@ if (isset($_GET)) {
 if (isset($_GET)) {
     if (isset($_GET["quest"])) {
         if ($_GET["quest"] == 'clientes_hace_2mes') {
-            $mysql_query = "select distinct c.*, idC.Dias,idC.total AS total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_emision, NOW())AS Dias  FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(DATE_SUB(NOW(), INTERVAL 2 MONTH)) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente WHERE c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(NOW()) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente);";
+            $mysql_query = "select distinct c.*, idC.Dias,idC.total AS total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_emision, NOW())AS Dias  FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(DATE_SUB(NOW(), INTERVAL 2 MONTH)) AND YEAR(fecha_emision) = YEAR(NOW()) and idEstado=2 ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente WHERE c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedidounhesa WHERE MONTH(fecha_emision) = MONTH(NOW()) AND YEAR(fecha_emision) = YEAR(NOW()) ORDER BY fecha_emision DESC) as idC on idC.idCliente = c.idCliente) group by(c.nombre);";
             $resultado = mysqli_query($con, $mysql_query);
 
             if (!$resultado) {

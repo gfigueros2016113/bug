@@ -211,7 +211,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td  id="codigo12" value="704">PTPPFR053</td>
-                                                <td id="nombreP12">FRI-OSO Canasta Naranja 300 barras</td>
+                                                <td id="nombreP12">FRI-OSO Bolsa Naranja 150 barras</td>
                                                 <td><input id="cantidad12" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio12" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total12"></td>
@@ -220,7 +220,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo13"  value="700">PTPPFR054</td>
-                                                <td id="nombreP13">FRI-OSO Canasta Fresa 300 barras</td>
+                                                <td id="nombreP13">FRI-OSO Bolsa Fresa 150 barras</td>
                                                 <td><input id="cantidad13" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio13" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total13"></td>
@@ -229,7 +229,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo14"  value="697">PTPPFR055</td>
-                                                <td id="nombreP14">FRI-OSO Canasta Chicle 300 barras</td>
+                                                <td id="nombreP14">FRI-OSO Bolsa Chicle 150 barras</td>
                                                 <td><input id="cantidad14" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio14" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total14"></td>
@@ -238,7 +238,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo15"  value="709">PTPPFR056</td>
-                                                <td id="nombreP15">FRI-OSO Canasta Uva 300 barras.</td>
+                                                <td id="nombreP15">FRI-OSO Bolsa Uva 150 barras.</td>
                                                 <td><input id="cantidad15" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio15" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total15"></td>
@@ -247,7 +247,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo16"  value="702">PTPPFR057</td>
-                                                <td id="nombreP16">FRI-OSO Canasta Manzana 300 barras</td>
+                                                <td id="nombreP16">FRI-OSO Bolsa Manzana 150 barras</td>
                                                 <td><input id="cantidad16" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio16" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total16"></td>
@@ -256,7 +256,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td  id="codigo17" value="705">PTPPFR058</td>
-                                                <td id="nombreP17">FRI-OSO Canasta Piña 300 barras</td>
+                                                <td id="nombreP17">FRI-OSO Bolsa Piña 150 barras</td>
                                                 <td><input id="cantidad17" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio17" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total17"></td>
@@ -265,7 +265,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo18"  value="703">PTPPFR060</td>
-                                                <td id="nombreP18">Fri-Oso Canasta Maracuya 300 Barras</td>
+                                                <td id="nombreP18">Fri-Oso Bolsa Maracuya 150 Barras</td>
                                                 <td><input id="cantidad18" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio18" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total18"></td>
@@ -274,7 +274,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo19"  value="707">PTPPFR062</td>
-                                                <td id="nombreP19">Fri-Oso Canasta Tamarindo-Enchilado 300 Barras</td>
+                                                <td id="nombreP19">Fri-Oso Bolsa Tamarindo-Enchilado 150 Barras</td>
                                                 <td><input id="cantidad19" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio19" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total19"></td>
@@ -283,7 +283,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo20"  value="699">PTPPFR063</td>
-                                                <td id="nombreP20">Fri-Oso Canasta Cola 300 Barras.</td>
+                                                <td id="nombreP20">Fri-Oso Bolsa Cola 150 Barras.</td>
                                                 <td><input id="cantidad20" value="0" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio20" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total20"></td>
@@ -292,7 +292,7 @@ $id = $_SESSION["idUsuario"];
                                             </tr>
                                             <tr>
                                                 <td id="codigo21"  value="698">PTPPFR064</td>
-                                                <td id="nombreP21">Fri-Oso Canasta Coco-Fresa 300 Barras.</td>
+                                                <td id="nombreP21">Fri-Oso Bolsa Coco-Fresa 150 Barras.</td>
                                                 <td><input id="cantidad21" value="0" type="number" placeholder="0" size=10 style="width:55px"></td>
                                                 <td><input id="precio21" type="number" value="67.50" size=10 style="width:54px"></td>
                                                 <td id="total21"></td>
