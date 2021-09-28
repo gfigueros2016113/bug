@@ -59,7 +59,7 @@ function pedidosPorMes() {
                         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                         pointHitRadius: 10,
                         pointBorderWidth: 2,
-                        data: [lista.enero, lista.febrero, lista.marzo, lista.abril, lista.mayo, lista.junio, lista.julio, lista.agosto, lista.septiembre, lista.octubre, lista.noviembre, lista.diciembre],
+                        data: [lista[0].enero, lista[0].febrero, lista[0].marzo, lista[0].abril, lista[0].mayo, lista[0].junio, lista[0].julio, lista[0].agosto, lista[0].septiembre, lista[0].octubre, lista[0].noviembre, lista[0].diciembre],
                     }],
                 },
                 options: {
@@ -91,7 +91,7 @@ function pedidosPorMes() {
                                 padding: 10,
                                 // Include a dollar sign in the ticks
                                 callback: function(value, index, values) {
-                                    return 'Q.' + number_format(value);
+                                    return number_format(value);
                                 }
                             },
                             gridLines: {
@@ -123,7 +123,7 @@ function pedidosPorMes() {
                         callbacks: {
                             label: function(tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': Q.' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ": " + number_format(tooltipItem.yLabel);
                             }
                         }
                     }
