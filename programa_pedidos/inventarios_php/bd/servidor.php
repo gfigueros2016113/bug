@@ -1101,7 +1101,7 @@ if (isset($_GET)) {
 if (isset($_GET)) {
     if (isset($_GET["quest"])) {
         if ($_GET["quest"] == 'pedidos_semana') {
-            $mysql_query = "SELECT CONCAT( ' semana ', FLOOR(((DAY(`fecha_generado`) - 1) / MONTH(NOW())) + 1) ) `semana`, count(*) AS `pedidos` FROM `pedido_online` WHERE MONTH(fecha_generado)=month(now()) and estado='confirmado' GROUP BY 1 order by `semana`;";
+            $mysql_query = "SELECT CONCAT( 'semana ', FLOOR(((DAY(`fecha_generado`) - 1) / 7) + 1) ) `semana`,count(*) AS `pedidos` FROM `pedido_online` WHERE MONTH(fecha_generado)=month(now()) and estado='confirmado' GROUP BY 1 order by `semana`;";
             $resultado = mysqli_query($con, $mysql_query);
 
             if (!$resultado) {

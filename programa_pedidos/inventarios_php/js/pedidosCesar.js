@@ -152,22 +152,22 @@ function pedidosPorSemana(){
             let lista = JSON.parse(res);
             console.log(lista);
             for(x=0; x<=6;x++){
-                if(lista[x].semana==' semana 1'){
+                if(lista[x].semana=='semana 1'){
                     semana1=lista[x].pedidos;
                 }
-                if(lista[x].semana==' semana 2'){
+                if(lista[x].semana=='semana 2'){
                     semana2=lista[x].pedidos;
                 }
-                if(lista[x].semana==' semana 3'){
+                if(lista[x].semana=='semana 3'){
                     semana3=lista[x].pedidos;
                 }
-                if(lista[x].semana==' semana 4'){
+                if(lista[x].semana=='semana 4'){
                     semana4=lista[x].pedidos;
                 }
-                if(lista[x].semana==' semana 5'){
+                if(lista[x].semana=='semana 5'){
                     semana5=lista[x].pedidos;
                 }
-                if(lista[x].semana==' semana 6'){
+                if(lista[x].semana=='semana 6'){
                     semana6=lista[x].pedidos;
                 }
                 
