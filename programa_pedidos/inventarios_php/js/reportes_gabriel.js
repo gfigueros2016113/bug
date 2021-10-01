@@ -1,7 +1,7 @@
 $(document).ready(function() {
     ClientesTop();
     ProductosTop();
-
+    TotalMes();
 });
 // Set new default font family and font color to mimic Bootstrap's default styling
 (Chart.defaults.global.defaultFontFamily = "Metropolis"),
@@ -29,6 +29,24 @@ function ClientesTop(){
               </tr>`
                 });
                 $("#tabla_top").html(template);
+            } catch (error) {
+            }
+        }
+
+    });
+}
+
+function TotalMes(){
+    $.ajax({
+        url: 'bd/servidor.php',
+        type: 'GET',
+        data: {
+            quest: 'total_mes'
+        },
+        success: function(res) {
+            let listaT = JSON.parse(res);
+            try {
+                document.getElementById("Total").innerHTML = `Q `+ `${listaT[0].TotalDelMes}`;
             } catch (error) {
             }
         }
