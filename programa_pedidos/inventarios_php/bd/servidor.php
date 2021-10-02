@@ -1056,6 +1056,8 @@ if (isset($_GET)) {
     }
 }
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
 
     parse_str(file_get_contents("php://input"), $_DELETE);
