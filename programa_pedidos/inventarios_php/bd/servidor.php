@@ -603,7 +603,7 @@ if (isset($_POST)) {
                 echo 'success';
             }
         }
-        header("Location: ../../Pedidos/ListPedidos.php?variable=1");
+        header("Location: ../../Pedidos/ListPedidos.php?variable=1"); 
     }
     if (isset($_POST["guardar_foto"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
@@ -975,6 +975,88 @@ if (isset($_POST)) {
         }
     }
 }
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'clientes_top') {
+            $mysql_query = "select c.nombre as Cliente , round((select sum(pp.precio*pp.cantidad) as Total from detalle_pedido_online pp inner join pedido_online pos on pos.id = pp.id_pedido_online inner join clientes_online cc on pos.id_cliente_online = cc.id where c.id = cc.id ),2) as Total  from detalle_pedido_online p inner join pedido_online po on po.id = p.id_pedido_online inner join clientes_online c on po.id_cliente_online = c.id group by Cliente order by Total desc limit 10;";
+            $resultado = mysqli_query($con, $mysql_query);
+            
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'Cliente' => $fila["Cliente"],
+                        'Total' => $fila["Total"],
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'productos_top') {
+            $mysql_query = "select pr.nombre as Producto, round((select sum(dp.cantidad) as Cantidad from detalle_pedido_online dp inner join producto pro on dp.id_producto = pro.idProducto where p.id_producto = dp.id_producto ),2) as Cantidad from detalle_pedido_online p inner join producto pr on p.id_producto = pr.idProducto group by Producto order by Cantidad desc limit 5;";
+            $resultado = mysqli_query($con, $mysql_query);
+            
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'Producto' => $fila["Producto"],
+                        'Cantidad' => $fila["Cantidad"],
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'total_mes') {
+            $mysql_query = "select round(ifnull(sum(dp.precio*dp.cantidad) ,0),2) as TotalDelMes from detalle_pedido_online as dp inner join pedido_online as po on po.id = dp.id_pedido_online  where EXTRACT(MONTH FROM po.fecha_entrega)=MONTH(CURRENT_DATE()) and po.estado = 'confirmado';";
+            $resultado = mysqli_query($con, $mysql_query);
+            
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'TotalDelMes' => $fila["TotalDelMes"],
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
 

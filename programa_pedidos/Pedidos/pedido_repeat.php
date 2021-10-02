@@ -356,14 +356,6 @@ while ($fila = mysqli_fetch_array($resultadoUsuario)) {
           var totalE = (document.getElementById('cantidad2').value * document.getElementById('precio2').value);
           elementos[id-1].total = totalE;
           recargar();
-          // var IdE = document.getElementById('idProductoEdit').value;
-          // var prodE = document.getElementById('ProductoEdit').value;
-          // var cantidadE = document.getElementById('cantidad2').value;
-          // var precioE = document.getElementById('precio2').value;
-          // var observacionE = document.getElementById('observacionesProducto2').value; 
-          <?php
-          // echo 'myFunction(IdE, cantidadE, precioE, observacionE,prodE, 0)';
-          ?>
         }
 
         function recargar(){
@@ -385,8 +377,10 @@ while ($fila = mysqli_fetch_array($resultadoUsuario)) {
           }
           document.getElementById('cuerpo').innerHTML = template;
         }
-
+        
+        var contador = 0;
         function myFunction2() {
+          if(contador == 0 ){
             if (document.getElementById("direccion").value == "" || document.getElementById("telefono").value == "" ||
                 document.getElementById("fecha").value == "" || document.getElementById("hora").value == "") {
                 Swal.fire({
@@ -419,14 +413,16 @@ while ($fila = mysqli_fetch_array($resultadoUsuario)) {
             data.append("idCliente", document.getElementById("idCliente").value);
             }
             data.append("tablita", JSON.stringify(elementos));
-            axios.post(urlUsers, data).then(response => {
+             axios.post(urlUsers, data).then(response => {
                 console.log(response.data);
                 if (response.status == 200) {
                     if (response.data == "funciono") {
                         document.getElementById("foto_pedido").click();
                     }
                 }
-            });
+            }); 
+            contador++;
+          }
         }
 
 

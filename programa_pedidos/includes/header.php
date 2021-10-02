@@ -139,6 +139,8 @@ if (!isset($_SESSION["nombreUsuario"]) || !isset($_SESSION["idEmpresaUsuario"]) 
             <a class="collapse-item" href="../inventarios_php/buscar_pedido_online.html"><i class="fas fa-stream"></i>&nbsp Buscar</a>
             <a class="collapse-item" href="../inventarios_php/agregar_pedido_online.html">
               <i class="fas fa-receipt"></i>&nbsp Agregar</a>
+              <a class="collapse-item" href="../inventarios_php/reporteria_gabriel.html"><i class="fas fa-address-book"></i>&nbsp Reporteria</a>
+
           </div>
         </div>
       </li>

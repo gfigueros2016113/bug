@@ -217,8 +217,8 @@ while ($fila = mysqli_fetch_array($respuesta_semanas)) {
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item" href="./inventarios_php/buscar_pedido_online.html"><i class="fas fa-stream"></i>&nbsp Buscar</a>
-            <a class="collapse-item" href="./inventarios_php/agregar_pedido_online.html">
-              <i class="fas fa-receipt"></i>&nbsp Agregar</a>
+            <a class="collapse-item" href="./inventarios_php/agregar_pedido_online.html"><i class="fas fa-receipt"></i>&nbsp Agregar</a>
+            <a class="collapse-item" href="./inventarios_php/reporteria_gabriel.html"><i class="fas fa-address-book"></i>&nbsp Reporteria</a>
           </div>
         </div>
       </li>
@@ -288,7 +288,7 @@ while ($fila = mysqli_fetch_array($respuesta_semanas)) {
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                       Vendido Hoy</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $vendido_hoy; ?></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php /* echo $vendido_hoy;  */?></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
