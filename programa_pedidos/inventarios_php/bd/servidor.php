@@ -1074,3 +1074,135 @@ if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
         }
     }
 }
+
+//-------------reportes
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'pedidos_por_mes') {
+            $mysql_query = "select(select count(*) as enero from pedido_online where month(fecha_generado)=1 and estado='confirmado') as enero,(select count(*)as febrero from pedido_online where month(fecha_generado)=2 and estado='confirmado')as febrero,(select count(*)as febrero from pedido_online where month(fecha_generado)=3 and estado='confirmado')as marzo,(select count(*)as abril from pedido_online where month(fecha_generado)=4 and estado='confirmado')as abril,(select count(*)as mayo from pedido_online where month(fecha_generado)=5 and estado='confirmado')as mayo,(select count(*)as junio from pedido_online where month(fecha_generado)=6 and estado='confirmado')as junio,(select count(*)as julio from pedido_online where month(fecha_generado)=7  and estado='confirmado')as julio,(select count(*)as agosto from pedido_online where month(fecha_generado)=8 and estado='confirmado')as agosto,(select count(*)as septiembre from pedido_online where month(fecha_generado)=9 and estado='confirmado')as septiembre,(select count(*)as octubre from pedido_online where month(fecha_generado)=10 and estado='confirmado')as octubre,(select count(*)as noviembre from pedido_online where month(fecha_generado)=11 and estado='confirmado')as noviembre,(select count(*)as diciembre from pedido_online where month(fecha_generado)=12 and estado='confirmado')as diciembre;";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'enero' => $fila["enero"],
+                        'febrero' => $fila["febrero"],
+                        'marzo' => $fila["marzo"],
+                        'abril' => $fila["abril"],
+                        'mayo' => $fila["mayo"],
+                        'junio' => $fila["junio"],
+                        'julio' => $fila["julio"],
+                        'agosto' => $fila["agosto"],
+                        'septiembre' => $fila["septiembre"],
+                        'octubre' => $fila["octubre"],
+                        'noviembre' => $fila["noviembre"],
+                        'diciembre' => $fila["diciembre"]
+
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'clientes_hace_1mes') {
+            $mysql_query = "select distinct c.*, idC.Dias, sum(dp.precio*dp.cantidad) as total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_generado, NOW()) AS Dias  FROM pedido_online WHERE MONTH(fecha_generado) = MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH)) AND YEAR(fecha_generado) = YEAR(NOW()) ORDER BY fecha_generado DESC) as idC on idC.id_cliente_online = c.idCliente inner join detalle_pedido_online as dp on dp.id_pedido_online=idC.id WHERE  idC.estado='confirmado' and c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedido_online WHERE MONTH(fecha_generado) = MONTH(NOW()) AND YEAR(fecha_generado) = YEAR(NOW()) ORDER BY fecha_generado DESC) as idC on idC.id_cliente_online = c.idCliente)  group by(c.nombre);";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'idCliente' => $fila["idCliente"],
+                        'nombre' => $fila["nombre"],
+                        'codigo' => $fila["codigo"],
+                        'Dias' => $fila["Dias"],
+                        'total' => $fila["total"]
+
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'clientes_hace_2mes') {
+            $mysql_query = "select distinct c.*, idC.Dias, sum(dp.precio*dp.cantidad) as total from cliente as c inner join (SELECT DISTINCT *, TIMESTAMPDIFF(DAY, fecha_generado, NOW()) AS Dias  FROM pedido_online WHERE MONTH(fecha_generado) = MONTH(DATE_SUB(NOW(), INTERVAL 2 MONTH)) AND YEAR(fecha_generado) = YEAR(NOW()) ORDER BY fecha_generado DESC) as idC on idC.id_cliente_online = c.idCliente inner join detalle_pedido_online as dp on dp.id_pedido_online=idC.id WHERE  idC.estado='confirmado' and c.idCliente NOT IN (select c.idCliente from cliente as c inner join (SELECT DISTINCT * FROM pedido_online WHERE MONTH(fecha_generado) = MONTH(NOW()) AND YEAR(fecha_generado) = YEAR(NOW()) ORDER BY fecha_generado DESC) as idC on idC.id_cliente_online = c.idCliente)  group by(c.nombre);";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'idCliente' => $fila["idCliente"],
+                        'nombre' => $fila["nombre"],
+                        'codigo' => $fila["codigo"],
+                        'Dias' => $fila["Dias"],
+                        'total' => $fila["total"]
+
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'pedidos_semana') {
+            $mysql_query = "SELECT CONCAT( 'semana ', FLOOR(((DAY(`fecha_generado`) - 1) / 7) + 1) ) `semana`,count(*) AS `pedidos` FROM `pedido_online` WHERE MONTH(fecha_generado)=month(now()) and estado='confirmado' GROUP BY 1 order by `semana`;";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'semana' => $fila["semana"],
+                        'pedidos' => $fila["pedidos"]
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                
+                echo 'no hay registros';
+            }
+        }
+    }
+}

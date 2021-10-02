@@ -154,55 +154,58 @@
 
                 </nav>
 
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Vendido En El Mes: </div>
-                            <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                    <a id="Total"></a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row m-auto">
 
-                  <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Clientes nuevos hoy: </div>
-                            <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                    <a id="Cliente"></a>
+                    <div class="col-xl-6 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Vendido En El Mes: 
+                                    </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    <a id="Total"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-user-clock fa-2x text-gray-300"></i>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+    
+                    <div class="col-xl-6 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Clientes nuevos hoy: 
+                                    </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    <a id=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fas fa-user-clock fa-2x text-gray-300"></i>
+                                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="contenido">
-                    <br>
-                    <!-- Example DataTable for Dashboard Demo-->
-                    
-                    <div class="col-lg-6">
+                </div>
+                
+            <div class="row m-auto">
+                    <div class="col-xl-6 col-md-6 mb-4">
                         <!-- Top 5 productos más vendidos -->
                         <div class="card h-100">
                             <div class="card-header"><strong>Top 5 productos más vendidos</strong></div>
@@ -257,69 +260,134 @@
                                 </div>
                             </div>
                         </div>
-                    
-                    <br><br>
-                        <!-- Example DataTable for Dashboard Demo-->
-                        <div class="card mb-4">
-                            <div class="card-header"><strong>Top 10 Mejores Clientes</strong></div>
-                            <div class="card-body">
-                                <br>
-                                <div class="datatable">
-                                    <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre del Cliente</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nombre del Cliente</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody id="tabla_top">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="card mb-4">
-                            <div class="card-header"><strong>Ganancias</strong></div>
-                            <div class="card-body">
-                                <div class="chart-area"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                            </div>
-                        </div>
-
-
-                        
-                        <script src="./node_modules/jquery/dist/jquery.js"></script>
-                        <script src="./node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-                        <script src="./js/ver_lista.js"></script>
                     </div>
-
-                    <!-- Custom fonts for this template-->
-                    <style>
-                        .contenido {
-                            
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            min-width: 0;
-                            flex-grow: 1;
-                            min-height: calc(100vh - 3.625rem);
-                            
-                        }
-                    </style>
-                    <script src="./node_modules/jquery/dist/jquery.js"></script>
-                    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-                    <script src="./js/ver_lista.js"></script>
-                </div>
-                <br><br>
+                    
+                    <!-- Example DataTable for Dashboard Demo-->
+                    <div class="card m-auto col-md-6">
+                        <div class="card-header"><strong>Top 10 Mejores Clientes</strong></div>
+                        <div class="card-body">
+                            <br>
+                            <div class="datatable">
+                                <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre del Cliente</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nombre del Cliente</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id="tabla_top">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>    
             </div>
+            <br>
+            <br>
+            <div class="card mb-4 col-lg-12 m-auto">
+                <div class="card-header"><strong>Ganancias</strong></div>
+                <div class="card-body">
+                    <div class="chart-area"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <!-- Clientes que hace un mes no han comprado-->
+            <div class="card mb-4">
+                <div class="card-header h1 text-center"><strong>Clientes que desde hace un mes, no han vuelto a comprar</strong></div>
+                <div class="card-body">
+                    <br>
+                    <div class="datatable">
+                        <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id del cliente</th>
+                                    <th>nombre</th>
+                                    <th>Código</th>
+                                    <th>Días transcurridos</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id del cliente</th>
+                                    <th>nombre</th>
+                                    <th>Código</th>
+                                    <th>Días transcurridos</th>
+                                    <th>Total</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="tabla_1mes">
 
-            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Example DataTable for Dashboard Demo-->
+        <div class="card mb-4">
+            <div class="card-header h1 text-center"><strong>Clientes que desde hace dos meses, no han vuelto a comprar</strong></div>
+            <div class="card-body">
+                <br>
+                <div class="datatable">
+                    <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id del cliente</th>
+                                <th>nombre</th>
+                                <th>Código</th>
+                                <th>Días transcurridos</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id del cliente</th>
+                                <th>nombre</th>
+                                <th>Código</th>
+                                <th>Días transcurridos</th>
+                                <th>Total</th>
+                            </tr>
+                        </tfoot>
+                        <tbody id="tabla_2mes">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Pedidos Por Mes</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="myChartAno"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Pedidos Por Semana</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="myChartMes"></canvas>
+                </div>
+            </div>
+        </div>
+                <script src="./node_modules/jquery/dist/jquery.js"></script>
+                <script src="./node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+                <script src="./js/ver_lista.js"></script>
             
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -366,10 +434,10 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="js/reportes_gabriel.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/reportes_gabriel.js"></script>
+    <script src="js/pedidosCesar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" crossorigin="anonymous"></script>
     <!-- Page level custom scripts -->
 </body>
-
 </html>
