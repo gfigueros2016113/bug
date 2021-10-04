@@ -1056,6 +1056,59 @@ if (isset($_GET)) {
     }
 }
 
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'total_semana') {
+            $mysql_query = "SELECT round(ifnull(sum(dp.precio*dp.cantidad) ,0),2) as Total from detalle_pedido_online as dp inner join pedido_online as po on po.id = dp.id_pedido_online  WHERE  WEEK(po.fecha_entrega, 5) - WEEK(DATE_SUB(po.fecha_entrega, INTERVAL DAYOFMONTH(po.fecha_entrega) - 1 DAY), 5) + 1 = WEEK(current_date(), 5) - WEEK(DATE_SUB(current_date(), INTERVAL DAYOFMONTH(current_date()) - 1 DAY), 5) + 1;";
+            $resultado = mysqli_query($con, $mysql_query);
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+            
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'Total' => $fila["Total"],
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+
+if (isset($_GET)) {
+    if (isset($_GET["quest"])) {
+        if ($_GET["quest"] == 'cliente_nuevo') {
+            $mysql_query = "SELECT po.id_cliente_online as Primer FROM pedido_online as po where DATE_FORMAT(po.fecha_generado,'%Y-%m-%d') = current_date() and po.id_cliente_online not in (select id_cliente_online from pedido_online where DATE_FORMAT(fecha_generado,'%Y-%m-%d') < current_date()) GROUP BY po.id_cliente_online;";
+            $resultado = mysqli_query($con, $mysql_query);
+
+            if (!$resultado) {
+                die('el Query falló:' . mysqli_error($con));
+            }
+
+            if (mysqli_num_rows($resultado) > 0) {
+                $json = array();
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    $json[] = array(
+                        'Primer' => $fila["Primer"],
+                    );
+                }
+                $json_string = json_encode($json);
+                echo $json_string;
+            } else {
+                echo 'no hay registros';
+            }
+        }
+    }
+}
+
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
@@ -1206,3 +1259,6 @@ if (isset($_GET)) {
         }
     }
 }
+
+
+

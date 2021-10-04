@@ -41,7 +41,6 @@ function pedidosPorMes() {
         },
         success: function(res) {
             let lista = JSON.parse(res);
-            console.log(lista);
             var ctx = document.getElementById("myChartAno");
             var myLineChart = new Chart(ctx, {
                 type: 'line',
@@ -150,7 +149,6 @@ function pedidosPorSemana(){
         },
         success: function(res) {
             let lista = JSON.parse(res);
-            console.log(lista);
             for(x=0; x<=6;x++){
                 if(lista[x].semana=='semana 1'){
                     semana1=lista[x].pedidos;
